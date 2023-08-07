@@ -15,3 +15,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.no-style-btn {
+  background: none;
+  border: none;
+  text-decoration: none;
+}
+
+@keyframes caretBlink {
+  0%,
+  100% {
+    caret-color: transparent;
+  }
+  50% {
+    caret-color: #4e4feb;
+  }
+}
+
+.animate-caret {
+  animation: caretBlink 1.2s step-end infinite;
+}

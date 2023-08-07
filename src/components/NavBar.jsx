@@ -1,5 +1,4 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { AiFillHome, AiOutlineUser } from "react-icons/ai"
 import { BsFillBookmarkHeartFill } from "react-icons/bs"
@@ -7,8 +6,9 @@ import { GiSpellBook } from "react-icons/gi"
 
 
 import useCurrentUserContext from "../hooks/useCurrentUserContext.js"
+import NavItem from './NavItem.jsx';
 
-function NavBar({ isOpen }) {
+function NavBar() {
     const { user } = useCurrentUserContext();
     const links = [
         {
@@ -42,23 +42,18 @@ function NavBar({ isOpen }) {
             className='h-20 bg-light-black '
             initial={{ y: -50, opacity: 0 }}
             animate={{
-                y: isOpen && 0,
-                opacity: isOpen && 1,
+                y: 0,
+                opacity: 1,
             }}
             transition={{ bounce: 0 }}
         >
             <ul className='flex items-center justify-around w-full h-full'>
-                {links.map((link) => {
+                {links.map((link, i) => {
                     if (link.requireLogin && !user._id) {
                         return null
                     }
                     return (
-                        <li className='text-white'>
-                            <div>
-                                {link.logo}
-                            </div>
-                            <NavLink to={link.path}>{link.name}</NavLink>
-                        </li>
+                        <NavItem key={i} link={link} />
                     )
                 })}
             </ul>

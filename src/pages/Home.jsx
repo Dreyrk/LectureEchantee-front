@@ -1,9 +1,11 @@
 import React from 'react'
 
+import PageHeader from '../components/PageHeader';
+
 function Home() {
     return (
-        <div>
-            <h1>Home Page</h1>
+        <div className='bg-primary'>
+            <PageHeader />
         </div>
     )
 }

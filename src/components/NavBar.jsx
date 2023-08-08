@@ -3,10 +3,11 @@ import { motion } from 'framer-motion';
 import { AiFillHome, AiOutlineUser } from "react-icons/ai"
 import { BsFillBookmarkHeartFill } from "react-icons/bs"
 import { GiSpellBook } from "react-icons/gi"
-
+import { FaRandom } from "react-icons/fa"
 
 import useCurrentUserContext from "../hooks/useCurrentUserContext.js"
 import NavItem from './NavItem.jsx';
+
 
 function NavBar() {
     const { user } = useCurrentUserContext();
@@ -34,6 +35,12 @@ function NavBar() {
             path: `/authenticate`,
             requireLogin: false,
             logo: <AiOutlineUser size={30} />
+        },
+        {
+            name: "Surprise-me",
+            path: `/details/random`,
+            requireLogin: false,
+            logo: <FaRandom size={30} />
         },
     ]
 

@@ -10,8 +10,8 @@ function SearchBar() {
     }
 
     return (
-        <div className='relative grid flex-grow place-content-center'>
-            <input value={search} onChange={handleSearch} className='p-2 text-white rounded-lg bg-light-black animate-caret' placeholder='Search...' type="text" />
+        <div className='relative grid flex-grow w-full place-content-center'>
+            <input value={search} onChange={handleSearch} className='w-3/4 p-2 text-white rounded-lg bg-light-black animate-caret' placeholder='Search...' type="text" />
             <button type='button' className='absolute right-[10%] -top-1 no-style-btn p-2'>
                 <FaSearch size={30} color='#545454' />
             </button>
@@ -19,4 +19,4 @@ function SearchBar() {
     )
 }
 
-export default SearchBar
+export default SearchBar;

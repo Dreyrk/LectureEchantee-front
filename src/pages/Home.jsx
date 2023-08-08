@@ -6,12 +6,9 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
-import PageHeader from '../components/PageHeader';
-
 function Home() {
     return (
-        <div className='bg-primary'>
-            <PageHeader />
+        <div className='p-2 bg-primary'>
             <Swiper
                 modules={[Navigation, Pagination, Scrollbar, A11y]}
                 slidesPerView={1}

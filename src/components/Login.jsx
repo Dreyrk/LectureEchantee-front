@@ -1,20 +1,13 @@
 import React, { useState } from "react";
 
-function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
+function Login({ setRegistered }) {
+  const [loginUser, setLoginUser] = useState({
+    email: "",
+    password: ""
+  })
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Ajoutez ici la logique de traitement de la connexion (ex. appel API, validation, etc.).
   };
   return (
     <div className="flex flex-col items-center justify-center h-screen">
@@ -95,47 +88,40 @@ function Login() {
           </g>
         </svg>
       </div>
-      <h1 className=" text-white py-2 font-bold text-center text-2xl">
+      <h1 className="py-2 text-2xl font-bold text-center text-white ">
         Lecture Enchantée
       </h1>
-      <form className="w-full max-w-sm  p-6" onSubmit={handleSubmit}>
+      <form className="w-full max-w-sm p-6" onSubmit={handleSubmit}>
         <div className="mb-4">
-          <label
-            htmlFor="email"
-            className="block text-sm font-medium text-gray-700 mb-1" // Demander à lucas si enlever le Label est une bonne chose
-          ></label>
           <input
             type="email"
             id="email"
             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
             placeholder="Adresse e-mail"
-            value={email}
-            onChange={handleEmailChange}
+            value={loginUser.email}
+            onChange={(e) => setLoginUser({ ...loginUser, email: e.target.value })}
             required
           />
         </div>
         <div className="mb-4">
-          <label
-            htmlFor="password"
-            className="block text-sm font-medium text-gray-700 mb-1" // Demander à lucas si enlever le Label est une bonne chose
-          ></label>
           <input
             type="password"
             id="password"
             className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-blue-300"
             placeholder="Mot de passe"
-            value={password}
-            onChange={handlePasswordChange}
+            value={loginUser.password}
+            onChange={(e) => setLoginUser({ ...loginUser, password: e.target.value })}
             required
           />
         </div>
         <button
           type="submit"
-          className="w-full bg-secondary text-white py-2 rounded-md hover:bg-secondary transition duration-300 font-bold"
+          className="w-full py-2 font-bold text-white transition duration-300 rounded-md bg-dark-secondary hover:bg-red"
         >
           Se connecter
         </button>
       </form>
+      <button type="button" onClick={() => setRegistered(false)} className="text-xs underline no-style-btn">Not registered yet ?</button>
     </div>
   );
 }

@@ -7,9 +7,11 @@ import { FaRandom } from "react-icons/fa"
 
 import useCurrentUserContext from "../hooks/useCurrentUserContext.js"
 import NavItem from './NavItem.jsx';
+import useThemeContext from '../hooks/useThemeContext.js';
 
 
 function NavBar() {
+    const { theme } = useThemeContext()
     const { user } = useCurrentUserContext();
     const links = [
         {
@@ -46,10 +48,10 @@ function NavBar() {
 
     return (
         <motion.nav
-            className='h-20 bg-light-black '
-            initial={{ y: -50, opacity: 0 }}
+            className={`fixed top-0 z-30 w-full h-20 ${theme === 'dark' ? 'bg-dark-tertiary' : 'bg-light-tertiary'}`}
+            initial={{ y: -100, opacity: 0 }}
             animate={{
-                y: 0,
+                y: 56,
                 opacity: 1,
             }}
             transition={{ bounce: 0 }}

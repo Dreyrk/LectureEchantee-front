@@ -6,6 +6,7 @@ import Library from '../pages/Library'
 import Browse from '../pages/Browse'
 import Auth from '../pages/Auth'
 import Details from '../pages/Details'
+import AdminPage from '../pages/AdminPage'
 
 const allRoutes = [
     {
@@ -27,6 +28,10 @@ const allRoutes = [
     {
         path: "/authenticate",
         component: <Auth />
+    },
+    {
+        path: "/admin",
+        component: <AdminPage />
     },
 ]
 

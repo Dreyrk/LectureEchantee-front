@@ -1,13 +1,17 @@
 import React from 'react'
 
 import PageHeader from '../components/PageHeader';
+import useThemeContext from '../hooks/useThemeContext';
 
 
 function Browse() {
+    const { theme } = useThemeContext()
     return (
-        <div>
+        <div className={`page-${theme}`}>
             <PageHeader />
-            <h1>Browse Page</h1>
+            <div>
+
+            </div>
         </div>
     )
 }

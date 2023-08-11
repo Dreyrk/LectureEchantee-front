@@ -69,7 +69,7 @@ function Home() {
     return (
         <div className={`page-${theme}`}>
             <PageHeader />
-            <div className='p-2 mt-[56px]'>
+            <div className='p-2 mt-[56px] lg:grid lg:place-content-center'>
                 <Carousel />
                 <Section data={data} title={'Popular'} />
                 <Section data={data} title={'Popular'} />

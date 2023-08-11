@@ -4,14 +4,14 @@ module.exports = {
   theme: {
     colors: {
       dark: {
-        primary: "#27243A",
-        secondary: "#4E4FEB",
-        tertiary: "#242222",
+        primary: "var(--dark-primary)",
+        secondary: "var(--dark-secondary)",
+        tertiary: "var(--dark-tertiary)",
       },
       light: {
-        primary: "#EEF0F2",
-        secondary: "#FFFFFF",
-        tertiary: "#F4F4F6",
+        primary: "var(--light-primary)",
+        secondary: "var(--light-secondary)",
+        tertiary: "var(--light-tertiary)",
       },
       "secondary-plus": "#2C2CA1",
       black: "#000000",

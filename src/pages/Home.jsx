@@ -1,30 +1,81 @@
 import React from 'react';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
+
+import useThemeContext from '../hooks/useThemeContext';
+import PageHeader from '../components/PageHeader';
+import Carousel from '../components/Carousel';
+import Section from '../components/Section';
 
 function Home() {
+    const { theme } = useThemeContext();
+
+    const data = [
+        {
+            title: 'test',
+            cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+            chapters: [1, 1, 1, 1, 1, 1, 1]
+        },
+        {
+            title: 'test',
+            cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+            chapters: [1, 1, 1, 1, 1, 1, 1]
+        },
+        {
+            title: 'test',
+            cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+            chapters: [1, 1, 1, 1, 1, 1, 1]
+        },
+        {
+            title: 'test',
+            cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+            chapters: [1, 1, 1, 1, 1, 1, 1]
+        },
+        {
+            title: 'test',
+            cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+            chapters: [1, 1, 1, 1, 1, 1, 1]
+        },
+        {
+            title: 'test',
+            cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+            chapters: [1, 1, 1, 1, 1, 1, 1]
+        },
+        {
+            title: 'test',
+            cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+            chapters: [1, 1, 1, 1, 1, 1, 1]
+        },
+        {
+            title: 'test',
+            cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+            chapters: [1, 1, 1, 1, 1, 1, 1]
+        },
+        {
+            title: 'test',
+            cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+            chapters: [1, 1, 1, 1, 1, 1, 1]
+        },
+        {
+            title: 'test',
+            cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+            chapters: [1, 1, 1, 1, 1, 1, 1]
+        },
+        {
+            title: 'test',
+            cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+            chapters: [1, 1, 1, 1, 1, 1, 1]
+        },
+    ]
+
     return (
-        <div className='p-2 bg-primary'>
-            <Swiper
-                modules={[Navigation, Pagination, Scrollbar, A11y]}
-                slidesPerView={1}
-                navigation
-                pagination={{ clickable: true }}
-            >
-                <SwiperSlide>
-                    <img src="https://mangas-origines.fr/wp-content/uploads/2023/06/the_player_who_can_t_level_up_18064-300x420.webp" alt="test" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://www.manga-news.com/public/images/vols/Tower_of_God_1_ototo.jpg" alt="test" />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src="https://www.nautiljon.com/images/actualite/00/03/1667750993652_image.webp" alt="test" />
-                </SwiperSlide>
-            </Swiper>
+        <div className={`page-${theme}`}>
+            <PageHeader />
+            <div className='p-2 mt-[56px]'>
+                <Carousel />
+                <Section data={data} title={'Popular'} />
+                <Section data={data} title={'Popular'} />
+                <Section data={data} title={'Popular'} />
+                <Section data={data} title={'Popular'} />
+            </div>
         </div>
     )
 }

@@ -13,7 +13,7 @@ module.exports = {
         secondary: "var(--light-secondary)",
         tertiary: "var(--light-tertiary)",
       },
-      "secondary-plus": "#2C2CA1",
+      "secondary-plus": "var(--secondary-plus)",
       black: "#000000",
       red: "#e01e37",
     },

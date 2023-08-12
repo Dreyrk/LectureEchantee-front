@@ -9,7 +9,7 @@ import 'swiper/css/scrollbar';
 function Carousel() {
     return (
         <Swiper
-            style={{ maxHeight: "50vh" }}
+            className='max-w-4xl max-h-[50vh]'
             modules={[Navigation, Pagination, Scrollbar, A11y]}
             slidesPerView={1}
             navigation

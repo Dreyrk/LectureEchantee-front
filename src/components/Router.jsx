@@ -14,7 +14,7 @@ const allRoutes = [
         component: <Home />
     },
     {
-        path: "/profile/:userId/Library",
+        path: "/profile/:userId/library",
         component: <Library />
     },
     {
@@ -22,7 +22,7 @@ const allRoutes = [
         component: <Browse />
     },
     {
-        path: "/scans/:id",
+        path: "/manhwa/:id",
         component: <Details />
     },
     {

@@ -8,73 +8,447 @@ import Section from '../components/Section';
 function Home() {
     const { theme } = useThemeContext();
 
-    const data = [
+    const sections = [
         {
-            title: 'test',
-            cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
-            chapters: [1, 1, 1, 1, 1, 1, 1]
+            title: "Popular",
+            data: [
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+            ]
         },
         {
-            title: 'test',
-            cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
-            chapters: [1, 1, 1, 1, 1, 1, 1]
+            title: "Popular",
+            data: [
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+            ]
         },
         {
-            title: 'test',
-            cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
-            chapters: [1, 1, 1, 1, 1, 1, 1]
+            title: "Popular",
+            data: [
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+            ]
         },
         {
-            title: 'test',
-            cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
-            chapters: [1, 1, 1, 1, 1, 1, 1]
+            title: "Popular",
+            data: [
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+            ]
         },
         {
-            title: 'test',
-            cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
-            chapters: [1, 1, 1, 1, 1, 1, 1]
+            title: "Popular",
+            data: [
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+            ]
         },
         {
-            title: 'test',
-            cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
-            chapters: [1, 1, 1, 1, 1, 1, 1]
-        },
-        {
-            title: 'test',
-            cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
-            chapters: [1, 1, 1, 1, 1, 1, 1]
-        },
-        {
-            title: 'test',
-            cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
-            chapters: [1, 1, 1, 1, 1, 1, 1]
-        },
-        {
-            title: 'test',
-            cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
-            chapters: [1, 1, 1, 1, 1, 1, 1]
-        },
-        {
-            title: 'test',
-            cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
-            chapters: [1, 1, 1, 1, 1, 1, 1]
-        },
-        {
-            title: 'test',
-            cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
-            chapters: [1, 1, 1, 1, 1, 1, 1]
+            title: "Popular",
+            data: [
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+                {
+                    _id: 159151,
+                    title: 'test',
+                    cover: 'https://asura.gg/wp-content/uploads/2023/07/HeavenlyDemonCover0222.png',
+                    chapters: [1, 1, 1, 1, 1, 1, 1]
+                },
+            ]
         },
     ]
+
 
     return (
         <div className={`page-${theme}`}>
             <PageHeader />
-            <div className='p-2 mt-[56px] lg:grid lg:place-content-center'>
-                <Carousel />
-                <Section data={data} title={'Popular'} />
-                <Section data={data} title={'Popular'} />
-                <Section data={data} title={'Popular'} />
-                <Section data={data} title={'Popular'} />
+            <div className=''>
+                <div className='p-2 mt-[56px] lg:grid lg:place-content-center'>
+                    <Carousel />
+                    {sections.map((s, i) => (<Section key={i} data={s.data} title={s.title} />))}
+                </div>
+                <div>
+
+                </div>
             </div>
         </div>
     )

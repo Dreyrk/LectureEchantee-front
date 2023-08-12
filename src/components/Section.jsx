@@ -10,7 +10,7 @@ function Section({ data, title }) {
                 <h2 className='mb-2 ml-2 text-lg font-bold'>{title}</h2>
             </div>
             <div className='flex gap-6 py-4 overflow-auto max-md:no-scrollbar'>
-                {data.map((manhwa) => (<ManhwaBox manhwa={manhwa} />))}
+                {data.map((manhwa) => (<ManhwaBox key={manhwa._id} manhwa={manhwa} />))}
             </div>
             <button className='absolute hidden p-1 lg:grid -right-16 top-1/2 place-content-center' type="button">
                 <BsChevronRight size={40} />

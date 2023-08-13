@@ -12,7 +12,7 @@ import useThemeContext from '../hooks/useThemeContext.js';
 
 function NavBar() {
     const { theme } = useThemeContext()
-    const { user } = useCurrentUserContext();
+    const { user, token } = useCurrentUserContext();
     const links = [
         {
             name: "Home",
@@ -33,14 +33,14 @@ function NavBar() {
             logo: <GiSpellBook size={30} />
         },
         {
-            name: "Login/Register",
-            path: `/authenticate`,
+            name: token ? "Profile" : "Login/Register",
+            path: token ? `/profile` : "/authenticate",
             requireLogin: false,
             logo: <AiOutlineUser size={30} />
         },
         {
             name: "Surprise-me",
-            path: `/details/random`,
+            path: `/manhwa/random`,
             requireLogin: false,
             logo: <FaRandom size={30} />
         },
@@ -48,7 +48,7 @@ function NavBar() {
 
     return (
         <motion.nav
-            className={`fixed top-0 z-30 w-full h-20 ${theme === 'dark' ? 'bg-dark-tertiary' : 'bg-light-tertiary'}`}
+            className={`fixed top-0 z-30 w-full h-20 bg-${theme}-tertiary`}
             initial={{ y: -100, opacity: 0 }}
             animate={{
                 y: 56,
@@ -58,7 +58,7 @@ function NavBar() {
         >
             <ul className='flex items-center justify-around w-full h-full'>
                 {links.map((link, i) => {
-                    if (link.requireLogin && !user._id) {
+                    if (link.requireLogin && !token) {
                         return null
                     }
                     return (

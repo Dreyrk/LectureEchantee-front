@@ -7,6 +7,7 @@ import Browse from '../pages/Browse'
 import Auth from '../pages/Auth'
 import Details from '../pages/Details'
 import AdminPage from '../pages/AdminPage'
+import Profile from '../pages/Profile'
 
 const allRoutes = [
     {
@@ -14,7 +15,11 @@ const allRoutes = [
         component: <Home />
     },
     {
-        path: "/profile/:userId/library",
+        path: "/profile",
+        component: <Profile />
+    },
+    {
+        path: "/profile/library",
         component: <Library />
     },
     {

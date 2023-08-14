@@ -10,7 +10,9 @@ export const UserContextProvider = ({ children }) => {
         pseudo: "",
         email: "",
         password: "",
-        favorites: []
+        library: {
+            manhwa: []
+        }
     });
 
     return (

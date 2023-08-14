@@ -30,7 +30,9 @@ function BookmarkBtn({ data }) {
     }, [user, token])
 
     return (
-        <button onClick={bookmark ? removeFav : addToFav} type='button' className={`bg-${theme}-secondary w-full`}>Bookmark {bookmark ? <BsBookmarkFill size={40} /> : <BsBookmark size={40} />}</button>
+        <button onClick={bookmark ? removeFav : addToFav} type='button' className={`bg-${theme}-secondary w-3/4 py-3 rounded-md flex justify-around items-center`}>
+            Bookmark {bookmark ? <BsBookmarkFill size={20} /> : <BsBookmark size={20} />}
+        </button>
 
     )
 }

@@ -5,11 +5,17 @@ import Login from "../components/Login";
 import Register from "../components/Register";
 
 function Auth() {
-  const [registered, setRegistered] = useState(false)
+  const [registered, setRegistered] = useState(false);
   return (
     <div className="bg-dark-primary">
       <PageHeader />
-      {registered ? <Login setRegistered={setRegistered} /> : <Register setRegistered={setRegistered} />}
+      <div className="main">
+        {registered ? (
+          <Login setRegistered={setRegistered} />
+        ) : (
+          <Register setRegistered={setRegistered} />
+        )}
+      </div>
     </div>
   );
 }

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import PageHeader from "../components/PageHeader";
-import useFetch from "../hooks/useFetch"; // Import your custom useFetch hook
 
 function AddWorks() {
   const [newManhwa, setNewManhwa] = useState({
@@ -13,10 +12,6 @@ function AddWorks() {
     rating: 0,
     status: "",
   });
-
-  const { data, isLoading, isError } = useFetch(
-    `${process.env.REACT_APP_PROD_URL}manhwa/all`
-  );
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -33,11 +28,11 @@ function AddWorks() {
   return (
     <div>
       <PageHeader />
-      <div className="main h-screen bg-dark-primary flex flex-col items-center ">
-        <h1 className="py-2 text-2xl font-bold text-center  text-white ">
+      <div className="flex flex-col items-center h-screen main bg-dark-primary ">
+        <h1 className="py-2 text-2xl font-bold text-center text-white ">
           Ajouter des œuvres
         </h1>
-        <form onSubmit={handleSubmit} className="w-full max-w-sm p-6   ">
+        <form onSubmit={handleSubmit} className="w-full max-w-sm p-6 ">
           <label className="block">
             Title:
             <input
@@ -45,7 +40,7 @@ function AddWorks() {
               name="title"
               value={newManhwa.title}
               onChange={handleInputChange}
-              className="mt-1 p-2 border rounded w-full"
+              className="w-full p-2 mt-1 border rounded"
             />
           </label>
           <label className="block">
@@ -55,7 +50,7 @@ function AddWorks() {
               name="synopsis"
               value={newManhwa.synopsis}
               onChange={handleInputChange}
-              className="mt-1 p-2 border rounded w-full"
+              className="w-full p-2 mt-1 border rounded"
             />
           </label>
           <label className="block">
@@ -65,7 +60,7 @@ function AddWorks() {
               name="author"
               value={newManhwa.author}
               onChange={handleInputChange}
-              className="mt-1 p-2 border rounded w-full"
+              className="w-full p-2 mt-1 border rounded"
             />
           </label>
           <label className="block">
@@ -75,7 +70,7 @@ function AddWorks() {
               name="genre"
               value={newManhwa.genre}
               onChange={handleInputChange}
-              className="mt-1 p-2 border rounded w-full"
+              className="w-full p-2 mt-1 border rounded"
             />
           </label>
           <label className="block">
@@ -85,7 +80,7 @@ function AddWorks() {
               name="cover"
               value={newManhwa.cover}
               onChange={handleInputChange}
-              className="mt-1 p-2 border rounded w-full"
+              className="w-full p-2 mt-1 border rounded"
             />
           </label>
           <label className="block">
@@ -95,7 +90,7 @@ function AddWorks() {
               name="chapters"
               value={newManhwa.chapters}
               onChange={handleInputChange}
-              className="mt-1 p-2 border rounded w-full flex-1 resize-none"
+              className="flex-1 w-full p-2 mt-1 border rounded resize-none"
             />
           </label>
           <label className="block">
@@ -105,7 +100,7 @@ function AddWorks() {
               name="rating"
               value={newManhwa.rating}
               onChange={handleInputChange}
-              className="mt-1 p-2 border rounded w-full"
+              className="w-full p-2 mt-1 border rounded"
             />
           </label>
           <label className="block">
@@ -114,7 +109,7 @@ function AddWorks() {
               name="status"
               value={newManhwa.status}
               onChange={handleInputChange}
-              className="mt-1 p-2 border rounded w-full"
+              className="w-full p-2 mt-1 border rounded"
             >
               <option value="Ongoing">Ongoing</option>
               <option value="Completed">Completed</option>
@@ -124,7 +119,7 @@ function AddWorks() {
           </label>
           <button
             type="submit"
-            className=" mt-4 p-2 py-2 font-bold text-white transition duration-300 rounded-md bg-dark-secondary hover:bg-red"
+            className="p-2 py-2 mt-4 font-bold text-white transition duration-300 rounded-md bg-dark-secondary hover:bg-red"
           >
             Add Manhwa
           </button>

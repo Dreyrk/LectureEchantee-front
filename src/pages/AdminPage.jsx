@@ -1,9 +1,8 @@
 import React from "react";
 import PageHeader from "../components/PageHeader";
-import { useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function AdminPage() {
-  const navigate = useNavigate();
 
   const links = [
     {
@@ -39,19 +38,19 @@ function AdminPage() {
   return (
     <div className="bg-dark-primary">
       <PageHeader />
-      <div className="main h-screen">
-        <h1 className="py-2 text-2xl font-bold text-center  text-white ">
+      <div className="h-screen main">
+        <h1 className="py-2 text-2xl font-bold text-center text-white ">
           Gestion du site
         </h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-6">
+        <div className="grid grid-cols-1 gap-8 p-6 md:grid-cols-2 lg:grid-cols-3">
           {links.map((link, index) => (
-            <button
+            <NavLink
               key={index}
-              className="w-full bg-dark-tertiary font-bold text-white rounded-lg border border-dark-secondary p-4"
-              onClick={() => navigate(link.path)}
+              className="w-full p-4 font-bold text-white border rounded-lg bg-dark-tertiary border-dark-secondary"
+              to={link.path}
             >
               {link.name}
-            </button>
+            </NavLink>
           ))}
         </div>
       </div>

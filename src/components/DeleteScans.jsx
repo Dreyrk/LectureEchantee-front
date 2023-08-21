@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import PageHeader from "../components/PageHeader";
 import useFetch from "../hooks/useFetch"; // Import your custom useFetch hook
 
 function DeleteScans() {
-  const [manhwaList, setManhwaList] = useState([]);
   const [selectedManhwa, setSelectedManhwa] = useState("");
   const [selectedChapters, setSelectedChapters] = useState([]);
 
@@ -11,13 +10,7 @@ function DeleteScans() {
     data: fetchedManhwaList,
     isLoading,
     isError,
-  } = useFetch(`${process.env.REACT_APP_PROD_URL}/manhwa/all`);
-
-  useEffect(() => {
-    if (fetchedManhwaList) {
-      setManhwaList(fetchedManhwaList.data);
-    }
-  }, [fetchedManhwaList]);
+  } = useFetch(`manhwa/all`);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -36,7 +29,7 @@ function DeleteScans() {
   return (
     <div>
       <PageHeader />
-      <div className="main h-screen bg-dark-primary flex flex-col items-center ">
+      <div className="flex flex-col items-center h-screen main bg-dark-primary ">
         <h1 className="py-2 text-2xl font-bold text-center text-white">
           Supprimer des chapitres
         </h1>
@@ -47,10 +40,10 @@ function DeleteScans() {
               name="selectedManhwa"
               value={selectedManhwa}
               onChange={handleInputChange}
-              className="mt-1 p-2 border rounded w-full"
+              className="w-full p-2 mt-1 border rounded"
             >
               <option value="">-- Sélectionnez --</option>
-              {manhwaList.map((manhwa) => (
+              {fetchedManhwaList?.map((manhwa) => (
                 <option key={manhwa._id} value={manhwa._id}>
                   {manhwa.title}
                 </option>
@@ -67,12 +60,12 @@ function DeleteScans() {
                   name="selectedChapters"
                   value={selectedChapters.join(", ")}
                   onChange={handleInputChange}
-                  className="mt-1 p-2 border rounded w-full"
+                  className="w-full p-2 mt-1 border rounded"
                 />
               </label>
               <button
                 type="submit"
-                className="mt-4 p-2 py-2 font-bold text-white transition duration-300 rounded-md bg-dark-secondary hover:bg-red"
+                className="p-2 py-2 mt-4 font-bold text-white transition duration-300 rounded-md bg-dark-secondary hover:bg-red"
               >
                 Supprimer des chapitres
               </button>

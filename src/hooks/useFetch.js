@@ -1,6 +1,6 @@
 import useSWR from "swr";
 
-import getAPIUrl from "../utils/getAPIUrl";
+import getAPIUrl from "../utils/getAPIUrl.js";
 
 const BASE_URL = getAPIUrl();
 

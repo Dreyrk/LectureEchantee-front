@@ -23,6 +23,7 @@ function AddScans() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
   };
 
   return (

@@ -1,28 +1,23 @@
 import React from 'react'
 import { motion } from 'framer-motion';
 import { AiFillHome, AiOutlineUser } from "react-icons/ai"
-import { BsFillBookmarkHeartFill } from "react-icons/bs"
 import { GiSpellBook } from "react-icons/gi"
 import { FaRandom } from "react-icons/fa"
 
 import useCurrentUserContext from "../hooks/useCurrentUserContext.js"
 import NavItem from './NavItem.jsx';
+import useFetch from '../hooks/useFetch.js';
 
 
 function NavBar() {
-    const { user, token } = useCurrentUserContext();
+    const { token } = useCurrentUserContext();
+    const { data, isLoading, isError } = useFetch("manhwa/random")
     const links = [
         {
             name: "Home",
             path: `/`,
             requireLogin: false,
             logo: <AiFillHome size={30} />
-        },
-        {
-            name: "Library",
-            path: `/profile/${user._id}/library`,
-            requireLogin: true,
-            logo: <BsFillBookmarkHeartFill size={30} />
         },
         {
             name: "Browse",
@@ -33,13 +28,11 @@ function NavBar() {
         {
             name: token ? "Profile" : "Login/Register",
             path: token ? `/profile` : "/authenticate",
-            requireLogin: false,
             logo: <AiOutlineUser size={30} />
         },
         {
             name: "Surprise-me",
-            path: `/manhwa/random`,
-            requireLogin: false,
+            path: `/manhwa/${data?._id}`,
             logo: <FaRandom size={30} />
         },
     ]
@@ -56,9 +49,6 @@ function NavBar() {
         >
             <ul className='flex items-center justify-around w-full h-full'>
                 {links.map((link, i) => {
-                    if (link.requireLogin && !token) {
-                        return null
-                    }
                     return (
                         <NavItem key={i} link={link} />
                     )

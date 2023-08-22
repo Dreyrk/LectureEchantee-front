@@ -1,7 +1,16 @@
 import React, { useState } from "react";
 import PageHeader from "../components/PageHeader";
+import getAPIUrl from "../utils/getAPIUrl";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+import useThemeContext from "../hooks/useThemeContext";
+import ReturnBtn from "./ReturnBtn";
+
+const BASE_URL = getAPIUrl()
 
 function AddWorks() {
+  const { theme } = useThemeContext()
   const [newManhwa, setNewManhwa] = useState({
     title: "",
     synopsis: "",
@@ -15,20 +24,56 @@ function AddWorks() {
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    setNewManhwa((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+    if (name === 'genre') {
+      setNewManhwa((prevState) => ({
+        ...prevState,
+        genre: value.split(',').map((genre) => genre.trim()), // Split and trim genres
+      }));
+    } else if (name === 'chapters') {
+      setNewManhwa((prevState) => ({
+        ...prevState,
+        chapters: value.split(',').map((chapter) => chapter.trim()), // Split and trim chapters
+      }));
+    } else {
+      setNewManhwa((prevState) => ({
+        ...prevState,
+        [name]: value,
+      }));
+    }
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const opts = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newManhwa),
+    };
+    const res = await fetch(`${BASE_URL}/manhwa/create`, opts);
+    if (res.status === 201) {
+      toast.success("Manhwa created !")
+    } else {
+      const error = await res.json();
+      toast.error(`Failed to create Manhwa: ${error.error}`)
+    }
   };
 
   return (
     <div>
       <PageHeader />
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        pauseOnHover
+        theme={theme}
+      />
       <div className="flex flex-col items-center h-screen main bg-dark-primary ">
+        <ReturnBtn />
         <h1 className="py-2 text-2xl font-bold text-center text-white ">
           Ajouter des œuvres
         </h1>
@@ -68,7 +113,7 @@ function AddWorks() {
             <input
               type="text"
               name="genre"
-              value={newManhwa.genre}
+              value={newManhwa.genre.join(', ')} // Join genres for display
               onChange={handleInputChange}
               className="w-full p-2 mt-1 border rounded"
             />
@@ -88,7 +133,7 @@ function AddWorks() {
             <textarea
               type="text"
               name="chapters"
-              value={newManhwa.chapters}
+              value={newManhwa.chapters.join(', ')} // Join chapters for display
               onChange={handleInputChange}
               className="flex-1 w-full p-2 mt-1 border rounded resize-none"
             />
@@ -111,6 +156,7 @@ function AddWorks() {
               onChange={handleInputChange}
               className="w-full p-2 mt-1 border rounded"
             >
+              <option className="text-center" value={null}>{">---------- Select a status ----------<"}</option>
               <option value="Ongoing">Ongoing</option>
               <option value="Completed">Completed</option>
               <option value="Dropped">Dropped</option>

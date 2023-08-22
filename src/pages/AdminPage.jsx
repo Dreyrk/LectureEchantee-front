@@ -6,32 +6,28 @@ function AdminPage() {
 
   const links = [
     {
-      name: "Ajouter des œuvres",
+      name: "Add Manhwa",
       path: `/admin/addworks`,
     },
     {
-      name: "Modifier des œuvres",
+      name: "Edit Manhwa",
       path: `/admin/editworks`,
     },
     {
-      name: "Supprimer une œuvre",
+      name: "Delete Manhwa",
       path: `/admin/deleteworks`,
     },
     {
-      name: "Ajouter des scans",
+      name: "Add Scans",
       path: `/admin/addscans`,
     },
     {
-      name: "Modifier des scans",
-      path: `/admin/editscans`,
+      name: "Promote Manhwa",
+      path: `/admin/promote`,
     },
     {
-      name: "Supprimer des scans",
-      path: `/admin/deletescans`,
-    },
-    {
-      name: "Œuvre favorite",
-      path: `/admin/deletescans`,
+      name: "Upgrade user to Admin",
+      path: `/admin/user/`,
     },
   ];
 
@@ -40,7 +36,7 @@ function AdminPage() {
       <PageHeader />
       <div className="h-screen main">
         <h1 className="py-2 text-2xl font-bold text-center text-white ">
-          Gestion du site
+          Manage Works and Scans
         </h1>
         <div className="grid grid-cols-1 gap-8 p-6 md:grid-cols-2 lg:grid-cols-3">
           {links.map((link, index) => (

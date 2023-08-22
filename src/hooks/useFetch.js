@@ -1,12 +1,20 @@
 import useSWR from "swr";
-
-import getAPIUrl from "../utils/getAPIUrl";
+import getAPIUrl from "../utils/getAPIUrl.js";
 
 const BASE_URL = getAPIUrl();
 
-async function fetcher(url) {
+async function fetcher(url, token) {
   try {
-    const res = await fetch(`${BASE_URL}/${url}`);
+    const headers = token
+      ? {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        }
+      : {
+          "Content-Type": "application/json",
+        };
+
+    const res = await fetch(`${BASE_URL}/${url}`, { headers });
 
     if (!res.ok) {
       const error = new Error("An error occurred while fetching the data.");
@@ -21,13 +29,18 @@ async function fetcher(url) {
   }
 }
 
-function useFetch(url) {
-  const { data, error } = useSWR(url, fetcher);
+function useFetch(url, token = null) {
+  const { data, error, mutate } = useSWR(url, () => fetcher(url, token));
+
+  const updateData = (newData) => {
+    mutate(url, { data: newData }, false); // Mise à jour sans revalidation immédiate
+  };
 
   return {
     data: data?.data,
     isLoading: !error && !data,
     isError: error,
+    updateData,
   };
 }
 

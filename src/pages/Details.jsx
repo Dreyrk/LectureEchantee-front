@@ -25,15 +25,15 @@ function Details() {
         return (
             <div className={`page-${theme}`}>
                 <PageHeader />
-                <div className="grid-cols-5 grid-rows-8 main lg:grid">
-                    <div className='flex flex-col items-center col-start-2 row-start-2 row-end-3 p-2 max-sm:mt-10 justify-evenly'>
+                <div className="main">
+                    <div className='flex flex-col items-center p-2 max-sm:mt-10 lg:h-[30vh] justify-evenly'>
                         <img className='h-40 rounded-lg w-28' src={data?.cover} alt="cover" />
                     </div>
                     {token &&
-                        <div className='flex items-center justify-around col-start-2 row-start-3'>
+                        <div className='flex items-center justify-around'>
                             <BookmarkBtn data={data} />
                         </div>}
-                    <div className='col-start-3 col-end-5 row-start-2 px-2 py-2 my-6 border-b-2 row-end border-secondary-plus lg:border-none'>
+                    <div className='px-2 py-2 my-6 border-b-2 border-secondary-plus lg:border-none'>
                         <h1 className={`text-3xl font-bold ${data?.title.length > 25 && 'animate-scrollText'}`}>{data?.title}</h1>
                     </div>
                     <div className='px-2'>

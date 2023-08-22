@@ -7,9 +7,11 @@ import useThemeContext from '../hooks/useThemeContext';
 import BookmarkBtn from '../components/BookmarkBtn';
 import Loader from '../components/Loader.jsx';
 import Comments from '../components/Comments.jsx';
+import useCurrentUserContext from '../hooks/useCurrentUserContext.js';
 
 function Details() {
     const { id } = useParams();
+    const { token } = useCurrentUserContext()
     const { theme } = useThemeContext();
 
     const { data, isLoading, isError, updateData } = useFetch(`manhwa/id/${id}`);
@@ -27,9 +29,10 @@ function Details() {
                     <div className='flex flex-col items-center col-start-2 row-start-2 row-end-3 p-2 max-sm:mt-10 justify-evenly'>
                         <img className='h-40 rounded-lg w-28' src={data?.cover} alt="cover" />
                     </div>
-                    <div className='flex items-center justify-around col-start-2 row-start-3'>
-                        <BookmarkBtn data={data} />
-                    </div>
+                    {token &&
+                        <div className='flex items-center justify-around col-start-2 row-start-3'>
+                            <BookmarkBtn data={data} />
+                        </div>}
                     <div className='col-start-3 col-end-5 row-start-2 px-2 py-2 my-6 border-b-2 row-end border-secondary-plus lg:border-none'>
                         <h1 className={`text-3xl font-bold ${data?.title.length > 25 && 'animate-scrollText'}`}>{data?.title}</h1>
                     </div>

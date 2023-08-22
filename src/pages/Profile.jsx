@@ -31,7 +31,7 @@ function Profile() {
         <div className={`page-${theme}`}>
             <PageHeader />
             <div className="main">
-                <div className="grid w-full max-w-md min-h-screen grid-rows-2 p-6 rounded-md">
+                <div className="grid w-full min-h-screen grid-rows-2 p-6 rounded-md">
                     <div className="row-span-1 mb-6 text-center">
                         <img className='w-24 h-24 mx-auto rounded-full' src="https://w7.pngwing.com/pngs/178/595/png-transparent-user-profile-computer-icons-login-user-avatars-thumbnail.png" alt="user-pp" />
                         {editProfile ? <input className='p-2 my-4 rounded-lg' type="text" value={user.pseudo} onChange={(e) => setUser({ ...user, pseudo: e.target.value })} /> : <h1 className="mt-2 text-xl font-semibold">{user.pseudo}</h1>}

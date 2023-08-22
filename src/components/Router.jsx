@@ -16,6 +16,7 @@ import EditScans from "./EditScans";
 import DeleteScans from "./DeleteScans";
 import PromoteWorks from "./PromoteWorks";
 import PromoteUser from "./PromoteUser";
+import NotFound from "./NotFound";
 
 const allRoutes = [
   {
@@ -77,6 +78,10 @@ const allRoutes = [
   {
     path: "/admin/user",
     component: <PromoteUser />,
+  },
+  {
+    path: "*",
+    component: <NotFound />,
   },
 ];
 

@@ -14,6 +14,7 @@ import DeleteWorks from "./DeleteWorks";
 import AddScans from "./AddScans";
 import EditScans from "./EditScans";
 import DeleteScans from "./DeleteScans";
+import PromoteWorks from "./PromoteWorks";
 
 const allRoutes = [
   {
@@ -67,6 +68,10 @@ const allRoutes = [
   {
     path: "/admin/deletescans",
     component: <DeleteScans />,
+  },
+  {
+    path: "/admin/promote",
+    component: <PromoteWorks />,
   },
 ];
 

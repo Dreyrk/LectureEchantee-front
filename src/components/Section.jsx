@@ -1,5 +1,4 @@
 import React from 'react'
-import { BsChevronRight, BsChevronLeft } from 'react-icons/bs'
 
 import ManhwaBox from './ManhwaBox'
 import useFetch from '../hooks/useFetch'
@@ -16,12 +15,6 @@ function Section({ url, title }) {
             <div className='flex gap-6 py-4 overflow-auto max-md:no-scrollbar'>
                 {data?.map((manhwa) => (<ManhwaBox isLoading={isLoading} isError={isError} key={manhwa._id} manhwa={manhwa} />))}
             </div>
-            <button className='absolute hidden p-1 lg:grid -right-16 top-1/2 place-content-center' type="button">
-                <BsChevronRight size={40} />
-            </button>
-            <button className='absolute hidden p-1 lg:grid -left-16 top-1/2 place-content-center' type="button">
-                <BsChevronLeft size={40} />
-            </button>
         </section>
     )
 }

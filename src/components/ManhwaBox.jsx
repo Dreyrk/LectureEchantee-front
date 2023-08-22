@@ -17,7 +17,7 @@ function ManhwaBox({ manhwa, isLoading, isError }) {
         )
     } else {
         return (
-            <NavLink to={`/manhwa/${manhwa._id}`} className='min-h-[254px] min-w-[164px] grid p-2'>
+            <NavLink to={`/manhwa/${manhwa._id}`} className='min-h-[254px] max-w-[164px] grid p-2'>
                 <div className='w-full h-2/3'>
                     <img className='object-cover rounded-xl hover:-translate-y-4' src={manhwa.cover} alt={manhwa.title} />
                 </div>

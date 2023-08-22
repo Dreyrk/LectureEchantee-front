@@ -31,18 +31,18 @@ function DeleteScans() {
       <PageHeader />
       <div className="flex flex-col items-center h-screen main bg-dark-primary ">
         <h1 className="py-2 text-2xl font-bold text-center text-white">
-          Supprimer des chapitres
+          Delete Scans
         </h1>
         <form onSubmit={handleSubmit} className="w-full max-w-sm p-6">
           <label className="block">
-            Sélectionnez un Manhwa:
+            Select a Manhwa:
             <select
               name="selectedManhwa"
               value={selectedManhwa}
               onChange={handleInputChange}
               className="w-full p-2 mt-1 border rounded"
             >
-              <option value="">-- Sélectionnez --</option>
+              <option value={null}>{">---------- Select ----------<"}</option>
               {fetchedManhwaList?.map((manhwa) => (
                 <option key={manhwa._id} value={manhwa._id}>
                   {manhwa.title}

@@ -32,8 +32,7 @@ function Home() {
         },
     ];
 
-    const { data, isLoading, isError } = useFetch("manhwa/promoted");
-    console.log(data)
+    const { data } = useFetch("manhwa/promoted");
 
     return (
         <div className={`page-${theme}`}>

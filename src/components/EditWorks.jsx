@@ -17,9 +17,7 @@ function EditWorks() {
   });
 
   const {
-    data: fetchedManhwaList,
-    isLoading,
-    isError,
+    data: fetchedManhwaList
   } = useFetch(`manhwa/all`);
 
   const handleSelectManhwa = (manhwa) => {

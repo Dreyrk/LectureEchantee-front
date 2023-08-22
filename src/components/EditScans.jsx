@@ -8,9 +8,7 @@ function EditScans() {
   const [selectedChapters, setSelectedChapters] = useState([]);
 
   const {
-    data: fetchedManhwaList,
-    isLoading,
-    isError,
+    data: fetchedManhwaList
   } = useFetch("manhwa/all");
 
   const handleInputChange = (event) => {
@@ -37,8 +35,8 @@ function EditScans() {
           }
         })
 
-        if (response && response.message === "Chapters edited") {
-          console.log("Chapters edited successfully!");
+        if (response.ok) {
+          console.log("Scans edited successfully!");
         } else {
           console.error("Failed to edit chapters.");
         }
@@ -64,7 +62,7 @@ function EditScans() {
               onChange={handleInputChange}
               className="w-full p-2 mt-1 border rounded"
             >
-              <option value="">-- Sélectionnez --</option>
+              <option value="">-- Select --</option>
               {fetchedManhwaList?.map((manhwa) => (
                 <option key={manhwa._id} value={manhwa._id}>
                   {manhwa.title}

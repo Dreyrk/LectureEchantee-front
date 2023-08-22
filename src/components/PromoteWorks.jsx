@@ -12,7 +12,7 @@ const BASE_URL = getAPIUrl();
 function PromoteWorks() {
     const { theme } = useThemeContext()
     const [selectedManhwa, setSelectedManhwa] = useState("");
-    const { data, isLoading, isError } = useFetch(
+    const { data } = useFetch(
         `manhwa/all`
     );
 

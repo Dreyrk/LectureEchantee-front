@@ -12,7 +12,7 @@ const BASE_URL = getAPIUrl();
 function DeleteWorks() {
   const { theme } = useThemeContext()
   const [selectedManhwa, setSelectedManhwa] = useState("");
-  const { data, isLoading, isError } = useFetch(
+  const { data } = useFetch(
     `manhwa/all`
   );
 
@@ -28,10 +28,8 @@ function DeleteWorks() {
       try {
         const response = await fetch(`${BASE_URL}/manhwa/${selectedManhwa}/delete`, opts);
         if (response.ok) {
-          // Handle success (e.g., show a success message)
           toast.success("Manhwa deleted successfully !");
         } else {
-          // Handle error (e.g., show an error message)
           toast.warn("Failed to delete manhwa.");
         }
       } catch (error) {

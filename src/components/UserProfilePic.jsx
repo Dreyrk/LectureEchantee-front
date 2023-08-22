@@ -5,7 +5,7 @@ import useFetch from '../hooks/useFetch';
 function UserProfilePic({ id, pseudo }) {
     const { token } = useCurrentUserContext();
 
-    const { data, isLoading, isError } = useFetch(`users/${id}`, token)
+    const { data } = useFetch(`users/${id}`, token)
 
     if (id && data) {
         return (

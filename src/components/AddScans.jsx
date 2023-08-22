@@ -13,9 +13,7 @@ function AddScans() {
   const [newChapters, setNewChapters] = useState("");
 
   const {
-    data: fetchedManhwaList,
-    isLoading,
-    isError,
+    data: fetchedManhwaList
   } = useFetch(`manhwa/all`);
 
   const handleInputChange = (event) => {
@@ -40,10 +38,10 @@ function AddScans() {
           }
         })
 
-        if (response && response.message === "Chapters edited") {
-          console.log("Chapters edited successfully!");
+        if (response.ok) {
+          toast.success("Scan added")
         } else {
-          console.error("Failed to edit chapters.");
+          toast.error("Failed to edit chapters.");
         }
       } catch (error) {
         console.error("An error occurred:", error);

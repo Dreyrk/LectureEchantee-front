@@ -11,7 +11,7 @@ import useFetch from '../hooks/useFetch.js';
 
 function NavBar() {
     const { token } = useCurrentUserContext();
-    const { data, isLoading, isError } = useFetch("manhwa/random")
+    const { data } = useFetch("manhwa/random")
     const links = [
         {
             name: "Home",

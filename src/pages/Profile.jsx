@@ -13,6 +13,7 @@ function Profile() {
     const { user, setUser, setToken, token } = useCurrentUserContext();
     const navigate = useNavigate();
     const [editProfile, setEditProfile] = useState(false);
+    console.log(user)
 
     useEffect(() => {
         if (!token) {

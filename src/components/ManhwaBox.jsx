@@ -21,7 +21,7 @@ function ManhwaBox({ manhwa, isLoading, isError }) {
         return (
             <NavLink to={`/manhwa/${manhwa._id}`} className={`min-h-[254px] max-w-[164px] grid p-2 text-${theme}-secondary`}>
                 <div className='w-full h-2/3'>
-                    <img className='object-cover rounded-xl hover:-translate-y-4' src={manhwa.cover} alt={manhwa.title} />
+                    <img crossOrigin='anonymous' className='object-cover rounded-xl hover:-translate-y-4' src={manhwa.cover} alt={manhwa.title} />
                 </div>
                 <div className={`w-full h-1/3`}>
                     <h3 className='text-base font-semibold'>{manhwa.title}</h3>

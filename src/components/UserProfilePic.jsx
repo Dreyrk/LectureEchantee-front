@@ -16,7 +16,7 @@ function UserProfilePic({ id, pseudo }) {
     } else {
         return (
             <div className='grid w-16 h-16 m-3 rounded-full place-content-center bg-secondary-plus'>
-                <span className='text-3xl font-semibold'>{pseudo[0].toUpperCase()}</span>
+                <span className='text-3xl font-semibold'>{pseudo ? pseudo[0].toUpperCase() : "No Name"}</span>
             </div>
         )
     }

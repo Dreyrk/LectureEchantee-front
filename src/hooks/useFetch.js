@@ -33,7 +33,7 @@ function useFetch(url, token = null) {
   const { data, error, mutate } = useSWR(url, () => fetcher(url, token));
 
   const updateData = (newData) => {
-    mutate(url, { data: newData }, false); // Mise à jour sans revalidation immédiate
+    mutate(url, { data: newData }, true); // Mise à jour sans revalidation immédiate
   };
 
   return {
@@ -41,6 +41,7 @@ function useFetch(url, token = null) {
     isLoading: !error && !data,
     isError: error,
     updateData,
+    mutate,
   };
 }
 

@@ -1,43 +1,48 @@
-import React, { useState } from "react";
-import PageHeader from "../components/PageHeader";
-import useFetch from "../hooks/useFetch"; // Import your custom useFetch hook
-import getAPIUrl from "../utils/getAPIUrl";
+import React, { useState } from 'react'
+import useThemeContext from '../hooks/useThemeContext';
+import PageHeader from './PageHeader';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import useThemeContext from "../hooks/useThemeContext";
-import ReturnBtn from "./ReturnBtn";
+import ReturnBtn from './ReturnBtn';
+import useFetch from '../hooks/useFetch';
+import getAPIUrl from '../utils/getAPIUrl';
+import useCurrentUserContext from '../hooks/useCurrentUserContext';
 
 const BASE_URL = getAPIUrl();
 
-function PromoteWorks() {
-    const { theme } = useThemeContext()
-    const [selectedManhwa, setSelectedManhwa] = useState("");
+function PromoteUser() {
+    const { theme } = useThemeContext();
+    const { token } = useCurrentUserContext()
+    const [selectedUser, setSelectedUser] = useState("");
     const { data } = useFetch(
-        `manhwa/all`
+        `users/all`
     );
 
-    const handleManhwaChange = (event) => {
-        setSelectedManhwa(event.target.value);
+    const handleUserChange = (event) => {
+        setSelectedUser(event.target.value);
     };
 
     const handlePromote = async () => {
-        if (selectedManhwa) {
+        if (selectedUser) {
             const opts = {
                 method: "PUT",
+                headers: { Authorization: `Bearer ${token}`, }
             }
             try {
-                const response = await fetch(`${BASE_URL}/manhwa/${selectedManhwa}/promote`, opts);
+                console.log(opts)
+                const response = await fetch(`${BASE_URL}/users/${selectedUser}/admin`, opts);
                 if (response.ok) {
-                    toast.success("Manhwa promote successfully !");
+                    toast.success("User promote successfully !");
                 } else {
-                    toast.warn("Failed to promote manhwa.");
+                    toast.warn("Failed to promote User.");
                 }
             } catch (error) {
                 toast.error("An error occurred:", error);
             }
+        } else {
+            return
         }
     };
-
     return (
         <div>
             <ToastContainer
@@ -53,22 +58,22 @@ function PromoteWorks() {
             <div className="flex flex-col items-center h-screen main bg-dark-primary">
                 <ReturnBtn />
                 <h1 className="py-2 text-2xl font-bold text-center text-white">
-                    Promote Works
+                    Promote User
                 </h1>
                 <div className="w-full max-w-sm p-6">
                     <label className="block">
-                        Select Manhwa to promote:
+                        Select User to promote:
                         <select
-                            name="manhwa"
-                            value={selectedManhwa}
-                            onChange={handleManhwaChange}
+                            name="user"
+                            value={selectedUser}
+                            onChange={handleUserChange}
                             className="w-full p-2 mt-1 border rounded"
                         >
                             <option value={null}>{">---------- Select ----------<"}</option>
                             {data &&
-                                data.map((manhwa) => (
-                                    <option key={manhwa._id} value={manhwa._id}>
-                                        {manhwa.title}
+                                data.map((user) => (
+                                    <option key={user._id} value={user._id}>
+                                        {user.pseudo}
                                     </option>
                                 ))}
                         </select>
@@ -77,12 +82,12 @@ function PromoteWorks() {
                         onClick={handlePromote}
                         className="p-2 py-2 mt-4 font-bold text-white transition duration-300 rounded-md bg-dark-secondary hover:bg-red"
                     >
-                        Promote Manhwa
+                        Promote User
                     </button>
                 </div>
             </div>
         </div>
-    );
+    )
 }
 
-export default PromoteWorks;
+export default PromoteUser;

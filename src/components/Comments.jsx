@@ -5,10 +5,11 @@ import CommentBox from '../components/CommentBox.jsx';
 import Loader from './Loader.jsx';
 import getAPIUrl from '../utils/getAPIUrl.js';
 import useCurrentUserContext from '../hooks/useCurrentUserContext.js';
+import { NavLink } from 'react-router-dom';
 
 
 function Comments({ data, isLoading, isError, updateData }) {
-    const { user } = useCurrentUserContext()
+    const { user, token } = useCurrentUserContext()
     const [comment, setComment] = useState({
         user: {
             id: user._id,
@@ -50,12 +51,20 @@ function Comments({ data, isLoading, isError, updateData }) {
     } else {
         return (
             <div className='flex flex-col gap-6 my-10'>
-                <div className='relative'>
-                    <input value={comment.text} onChange={(e) => setComment({ ...comment, text: e.target.value })} type="text" placeholder='Write a comment...' className='w-full px-3 py-4 text' />
-                    <button onClick={postComment} className='absolute z-50 p-2 rounded-full top-1 right-3 hover:scale-125 bg-secondary-plus' type='button'>
-                        <AiOutlineSend size={30} />
-                    </button>
-                </div>
+                {
+                    token ?
+                        <div className='relative'>
+                            <input value={comment.text} onChange={(e) => setComment({ ...comment, text: e.target.value })} type="text" placeholder='Write a comment...' className='w-full px-3 py-4 text' />
+                            <button onClick={postComment} className='absolute z-50 p-2 rounded-full top-1 right-3 hover:scale-125 bg-secondary-plus' type='button'>
+                                <AiOutlineSend size={30} />
+                            </button>
+                        </div> :
+                        <>
+                            <NavLink className="w-full p-2 font-semibold text-center bg-red rounded-xl" to={"/authenticate"}>
+                                Login to post comments
+                            </NavLink>
+                        </>
+                }
                 {data?.comments.map((comment) => (
                     <CommentBox comment={comment} />
                 ))}
